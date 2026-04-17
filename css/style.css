@@ -1803,3 +1803,122 @@ ul { list-style: none; }
   .use-cases__grid { grid-template-columns: 1fr; }
   .stats__grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================
+   Privacy Policy Page Styles
+   ============================================ */
+
+.privacy-hero {
+  padding-top: 140px;
+  padding-bottom: 60px;
+  background: var(--blue-950);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(210,100%,20%,0.5) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(190,100%,20%,0.5) 0, transparent 50%);
+  color: var(--white);
+  text-align: center;
+}
+
+.privacy-hero__title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.privacy-hero__meta {
+  font-size: 14px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+.privacy-content {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.privacy-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.privacy-section {
+  margin-bottom: 48px;
+}
+
+.privacy-section:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-section__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.privacy-section__title svg {
+  color: var(--blue-500);
+  width: 24px;
+  height: 24px;
+}
+
+.privacy-text {
+  font-size: 16px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.privacy-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 16px;
+}
+
+.privacy-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  color: var(--gray-600);
+}
+
+.privacy-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--blue-500);
+  font-weight: bold;
+}
+
+.privacy-contact-box {
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  margin-top: 40px;
+}
+
+.privacy-contact-box h3 {
+  margin-top: 0;
+  color: var(--blue-900);
+  margin-bottom: 12px;
+}
+
+.privacy-contact-link {
+  color: var(--blue-600);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .privacy-hero { padding-top: 120px; }
+  .privacy-content { padding: 40px 0; }
+  .privacy-section { margin-bottom: 32px; }
+}
