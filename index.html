@@ -123,49 +123,19 @@
                 <div class="hero-road__dust">
                     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                 </div>
-                <svg viewBox="0 0 240 80" overflow="visible" xmlns="http://www.w3.org/2000/svg">
+                <!-- Car Body Image -->
+                <img src="./assets/car.png" alt="Veilo Car" class="car-body-img">
+                
+                <!-- Headlight glow overlay -->
+                <svg class="car-headlight-glow" viewBox="0 0 240 80" overflow="visible" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <radialGradient id="headlightGlow">
                             <stop offset="0%" stop-color="rgba(255,255,200,0.5)" />
                             <stop offset="100%" stop-color="rgba(255,255,200,0)" />
                         </radialGradient>
                     </defs>
-                    <!-- Body -->
-                    <path d="M 22 55
-                             L 24 45
-                             C 25 38, 30 35, 40 33
-                             L 50 30
-                             C 60 21, 80 18, 105 18
-                             L 135 18
-                             C 155 18, 165 24, 180 33
-                             L 210 40
-                             C 220 42, 226 48, 226 55
-                             L 202 55
-                             A 17 17 0 0 0 168 55
-                             L 72 55
-                             A 17 17 0 0 0 38 55
-                             Z" fill="rgba(255,255,255,0.95)" />
-                    <!-- Windows -->
-                    <path d="M 65 31 C 72 23, 85 21, 105 21 L 115 21 L 115 33 L 61 33 Z"
-                        fill="rgba(100, 180, 255, 0.4)" />
-                    <path d="M 120 21 L 130 21 C 145 21, 155 25, 165 33 L 120 33 Z" fill="rgba(100, 180, 255, 0.4)" />
-                    <!-- QR Sticker -->
-                    <rect x="70" y="24" width="8" height="8" rx="1" fill="rgba(255,255,255,0.9)" />
-                    <rect x="71" y="25" width="2" height="2" fill="rgba(0,0,0,0.8)" />
-                    <rect x="75" y="25" width="2" height="2" fill="rgba(0,0,0,0.8)" />
-                    <rect x="71" y="29" width="2" height="2" fill="rgba(0,0,0,0.8)" />
-                    <rect x="75" y="29" width="1" height="1" fill="rgba(0,0,0,0.8)" />
-                    <!-- Wheels -->
-                    <circle cx="55" cy="55" r="14" fill="#0f172a" />
-                    <circle cx="185" cy="55" r="14" fill="#0f172a" />
-                    <circle cx="55" cy="55" r="7" fill="#cbd5e1" />
-                    <circle cx="185" cy="55" r="7" fill="#cbd5e1" />
-                    <circle cx="55" cy="55" r="3" fill="#64748b" />
-                    <circle cx="185" cy="55" r="3" fill="#64748b" />
-                    <!-- Headlight & Tailight -->
-                    <ellipse cx="220" cy="48" rx="6" ry="3" fill="rgba(255,255,200,1)" />
-                    <ellipse cx="240" cy="50" rx="30" ry="20" fill="url(#headlightGlow)" />
-                    <rect x="22" y="45" width="4" height="6" rx="1" fill="#ef4444" />
+                    <!-- Headlight beam overlaying the PNG -->
+                    <ellipse cx="230" cy="50" rx="40" ry="20" fill="url(#headlightGlow)" />
                 </svg>
             </div>
         </div>

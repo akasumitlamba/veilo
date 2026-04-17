@@ -644,10 +644,22 @@ ul { list-style: none; }
   z-index: 3;
 }
 
-.hero-road__car svg {
+.car-body-img {
+  display: block;
   width: 100%;
   height: auto;
   animation: car-bounce 0.6s ease-in-out infinite;
+}
+
+.car-headlight-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  animation: car-bounce 0.6s ease-in-out infinite;
+  z-index: 2;
 }
 
 /* Subtle bounce */
