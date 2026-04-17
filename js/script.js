@@ -132,4 +132,39 @@ document.addEventListener('DOMContentLoaded', () => {
       tl.to(car, { x: () => window.innerWidth + 100, ease: 'none', duration: 1 }, 0);
     }
   }
+
+
+  // -------------------------------------------
+  // 7. Navbar Scroll-Spy & Active State
+  // -------------------------------------------
+  const navLinks = document.querySelectorAll('.header__nav a');
+  const sections = document.querySelectorAll('section[id]');
+  
+  // Update active state based on scroll position
+  const spyOptions = {
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  };
+
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href').replace('#', '');
+          link.classList.toggle('active', href === id);
+        });
+      }
+    });
+  }, spyOptions);
+
+  sections.forEach(sec => spyObserver.observe(sec));
+
+  // Manual click update for immediate feedback
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
 });
