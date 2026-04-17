@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeiloScan - Smart QR Codes for Your Vehicle</title>
+    <meta name="description"
+        content="Stick a QR code on your car, bike, or truck. Let people reach you instantly for parking issues, accidents, or emergencies - without revealing your phone number.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <link rel="icon" href="https://veiloscan.com/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#" class="header__logo">
+                <img src="assets/blue-logo.png" alt="VeiloScan">
+            </a>
+
+            <nav class="header__nav">
+                <a href="#features" class="active">Features</a>
+                <a href="#vehicles">Vehicles</a>
+                <a href="#use-cases">Use Cases</a>
+                <a href="#recent">Recent</a>
+            </nav>
+
+            <div class="header__actions">
+                <a href="https://call.veiloscan.com/" class="btn-signin">Manage Profile</a>
+                <button class="btn-playstore" onclick="window.location.href='#download'">
+                    <img src="assets/playstore.png" alt="Play Store" class="btn-playstore__icon">
+                    Download App
+                </button>
+            </div>
+
+            <button class="header__hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__blob hero__blob--3"></div>
+
+        <div class="container hero__inner">
+            <div class="hero__badge">
+                <span class="hero__badge-dot"></span>
+                Trusted by 10,000+ vehicle owners across India
+            </div>
+
+            <h1 class="hero__title">
+                Your car can talk<br>
+                <span class="hero__title-accent">when you're not around.</span>
+            </h1>
+
+            <p class="hero__subtitle">
+                Stick a VeiloScan QR on your vehicle. When someone scans it, they can
+                reach you instantly - for parking blocks, scratches, or emergencies -
+                without ever seeing your phone number.
+            </p>
+
+            <div class="hero__cta">
+                <button class="btn-primary" onclick="window.location.href='#get-qr'">
+                    Get Your QR Code
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="21" r="1" />
+                        <circle cx="19" cy="21" r="1" />
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                    </svg>
+                </button>
+                <button class="btn-playstore" onclick="window.location.href='#download'">
+                    <img src="assets/playstore.png" alt="Play Store" class="btn-playstore__icon">
+                    Download App
+                </button>
+            </div>
+        </div>
+
+        <!-- Car driving scene at bottom of hero -->
+        <div class="hero-road" aria-hidden="true">
+            <!-- Background Scenery -->
+            <div class="hero-road__scenery">
+                <!-- Building 1 -->
+                <div class="scenery-item building-1">
+                    <img src="./assets/building1.png" alt="Building 1">
+                </div>
+                <!-- Traffic Light -->
+                <div class="scenery-item traffic-light">
+                    <img src="./assets/light.png" alt="Traffic Light">
+                </div>
+                <!-- Building 2 -->
+                <div class="scenery-item building-2">
+                    <img src="./assets/building2.png" alt="Building 2">
+                </div>
+                <!-- Tree -->
+                <div class="scenery-item tree">
+                    <img src="./assets/tree.png" alt="Tree">
+                </div>
+            </div>
+
+            <!-- Road surface -->
+            <div class="hero-road__surface">
+                <div class="hero-road__dashes"></div>
+            </div>
+
+            <!-- Car SVG container -->
+            <div class="hero-road__car">
+                <!-- Speed lines trailing the car -->
+                <div class="hero-road__speedlines">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <!-- Dust trailing the wheels -->
+                <div class="hero-road__dust">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <svg viewBox="0 0 240 80" overflow="visible" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="headlightGlow">
+                            <stop offset="0%" stop-color="rgba(255,255,200,0.5)" />
+                            <stop offset="100%" stop-color="rgba(255,255,200,0)" />
+                        </radialGradient>
+                    </defs>
+                    <!-- Body -->
+                    <path d="M 22 55
+                             L 24 45
+                             C 25 38, 30 35, 40 33
+                             L 50 30
+                             C 60 21, 80 18, 105 18
+                             L 135 18
+                             C 155 18, 165 24, 180 33
+                             L 210 40
+                             C 220 42, 226 48, 226 55
+                             L 202 55
+                             A 17 17 0 0 0 168 55
+                             L 72 55
+                             A 17 17 0 0 0 38 55
+                             Z" fill="rgba(255,255,255,0.95)" />
+                    <!-- Windows -->
+                    <path d="M 65 31 C 72 23, 85 21, 105 21 L 115 21 L 115 33 L 61 33 Z"
+                        fill="rgba(100, 180, 255, 0.4)" />
+                    <path d="M 120 21 L 130 21 C 145 21, 155 25, 165 33 L 120 33 Z" fill="rgba(100, 180, 255, 0.4)" />
+                    <!-- QR Sticker -->
+                    <rect x="70" y="24" width="8" height="8" rx="1" fill="rgba(255,255,255,0.9)" />
+                    <rect x="71" y="25" width="2" height="2" fill="rgba(0,0,0,0.8)" />
+                    <rect x="75" y="25" width="2" height="2" fill="rgba(0,0,0,0.8)" />
+                    <rect x="71" y="29" width="2" height="2" fill="rgba(0,0,0,0.8)" />
+                    <rect x="75" y="29" width="1" height="1" fill="rgba(0,0,0,0.8)" />
+                    <!-- Wheels -->
+                    <circle cx="55" cy="55" r="14" fill="#0f172a" />
+                    <circle cx="185" cy="55" r="14" fill="#0f172a" />
+                    <circle cx="55" cy="55" r="7" fill="#cbd5e1" />
+                    <circle cx="185" cy="55" r="7" fill="#cbd5e1" />
+                    <circle cx="55" cy="55" r="3" fill="#64748b" />
+                    <circle cx="185" cy="55" r="3" fill="#64748b" />
+                    <!-- Headlight & Tailight -->
+                    <ellipse cx="220" cy="48" rx="6" ry="3" fill="rgba(255,255,200,1)" />
+                    <ellipse cx="240" cy="50" rx="30" ry="20" fill="url(#headlightGlow)" />
+                    <rect x="22" y="45" width="4" height="6" rx="1" fill="#ef4444" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    Why VeiloScan
+                </div>
+                <h2 class="section-title">Everything you need,<br>nothing you don't.</h2>
+                <p class="section-subtitle">A QR sticker on your car does the talking. No app required for the person
+                    scanning it.</p>
+            </div>
+
+            <div class="features__grid stagger-children">
+                <!-- Card 1: Instant Contact -->
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon feature-card__icon--blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Instant Contact</h3>
+                    <p class="feature-card__desc">Someone blocks your car? They scan the QR and can call or text you in
+                        seconds. No searching, no waiting.</p>
+                    <div class="feature-card__stat">
+                        <span class="feature-card__stat-dot"></span>
+                        5,000+ contacts made
+                    </div>
+                </div>
+
+                <!-- Card 2: Privacy First -->
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon feature-card__icon--teal">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">Privacy First</h3>
+                    <p class="feature-card__desc">Your phone number stays hidden. Callers connect through VeiloScan, so
+                        your personal info is never exposed.</p>
+                    <div class="feature-card__stat">
+                        <span class="feature-card__stat-dot"></span>
+                        100% anonymous contact
+                    </div>
+                </div>
+
+                <!-- Card 3: No App Needed -->
+                <div class="feature-card reveal">
+                    <div class="feature-card__icon feature-card__icon--dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                            <path d="M12 18h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-card__title">No App Needed</h3>
+                    <p class="feature-card__desc">The person scanning doesn't need to install anything. Just point their
+                        phone camera at the QR - that's it.</p>
+                    <div class="feature-card__stat">
+                        <span class="feature-card__stat-dot"></span>
+                        Works on every smartphone
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== STATS ==================== -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats__grid">
+                <div class="stat-item reveal">
+                    <div class="stat-item__number" data-count="10000" data-suffix="+">0</div>
+                    <div class="stat-item__label">Stickers Activated</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-item__number" data-count="5000" data-suffix="+">0</div>
+                    <div class="stat-item__label">Contacts Made</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-item__number" data-count="99.9" data-suffix="%">0</div>
+                    <div class="stat-item__label">Uptime</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-item__number" data-count="24" data-suffix="/7">0</div>
+                    <div class="stat-item__label">Always Active</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== VEHICLE TYPES ==================== -->
+    <section class="vehicle-types" id="vehicles">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    Vehicle Types
+                </div>
+                <h2 class="section-title">One QR. Any vehicle.</h2>
+                <p class="section-subtitle">Whether you drive a hatchback or manage a fleet of trucks, VeiloScan fits
+                    right in.</p>
+            </div>
+
+            <div class="vehicle-types__grid stagger-children">
+                <!-- Cars -->
+                <div class="vehicle-card vehicle-card--car reveal">
+                    <div class="vehicle-card__content">
+                        <div class="vehicle-card__icon">
+                            <div class="vcard-scene vcard-scene--car">
+                                <!-- Smoke puffs trail (left = behind the car) -->
+                                <span class="vcard-smoke vcard-smoke--1"></span>
+                                <span class="vcard-smoke vcard-smoke--2"></span>
+                                <span class="vcard-smoke vcard-smoke--3"></span>
+                                <!-- Car Icon from Recent Section -->
+                                <svg class="vcard-vehicle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+                                    <circle cx="7" cy="17" r="2" />
+                                    <path d="M9 17h6" />
+                                    <circle cx="17" cy="17" r="2" />
+                                </svg>
+                                <!-- Road strip -->
+                                <div class="vcard-road">
+                                    <div class="vcard-road__dash"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="vehicle-card__title">Cars &amp; SUVs</h3>
+                        <p class="vehicle-card__desc">Dashboard or windshield sticker. Perfect for parking blocks, minor
+                            scratch reports, and roadside emergencies.</p>
+                        <button class="vehicle-card__btn" onclick="window.location.href='#get-qr'">
+                            Get Car QR
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="vehicle-card__bg-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+                            <circle cx="7" cy="17" r="2" />
+                            <path d="M9 17h6" />
+                            <circle cx="17" cy="17" r="2" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Bikes -->
+                <div class="vehicle-card vehicle-card--bike reveal">
+                    <div class="vehicle-card__content">
+                        <div class="vehicle-card__icon">
+                            <div class="vcard-scene vcard-scene--bike">
+                                <!-- Bike Icon from Recent Section -->
+                                <svg class="vcard-vehicle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="18.5" cy="17.5" r="3.5" />
+                                    <circle cx="5.5" cy="17.5" r="3.5" />
+                                    <circle cx="15" cy="5" r="1" />
+                                    <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
+                                </svg>
+                                <div class="vcard-road">
+                                    <div class="vcard-road__dash"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="vehicle-card__title">Bikes &amp; Scooters</h3>
+                        <p class="vehicle-card__desc">Stick it on your helmet or handlebars. Enables quick contact for
+                            recovery, towing, or if your bike gets knocked over.</p>
+                        <button class="vehicle-card__btn" onclick="window.location.href='#get-qr'">
+                            Get Bike QR
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="vehicle-card__bg-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="18.5" cy="17.5" r="3.5" />
+                            <circle cx="5.5" cy="17.5" r="3.5" />
+                            <circle cx="15" cy="5" r="1" />
+                            <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Trucks -->
+                <div class="vehicle-card vehicle-card--truck reveal">
+                    <div class="vehicle-card__content">
+                        <div class="vehicle-card__icon">
+                            <div class="vcard-scene vcard-scene--truck">
+                                <span class="vcard-smoke vcard-smoke--1"></span>
+                                <span class="vcard-smoke vcard-smoke--2"></span>
+                                <span class="vcard-smoke vcard-smoke--3"></span>
+                                <!-- Truck Icon from Recent Section -->
+                                <svg class="vcard-vehicle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+                                    <path d="M15 18h2" />
+                                    <path
+                                        d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+                                    <circle cx="17" cy="18" r="2" />
+                                    <circle cx="7" cy="18" r="2" />
+                                </svg>
+                                <div class="vcard-road">
+                                    <div class="vcard-road__dash"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="vehicle-card__title">Trucks &amp; Fleets</h3>
+                        <p class="vehicle-card__desc">Ideal for commercial vehicles. Let people contact your driver or
+                            fleet manager without phone number hassles.</p>
+                        <button class="vehicle-card__btn" onclick="window.location.href='#get-qr'">
+                            Get Fleet QR
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="vehicle-card__bg-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+                            <path d="M15 18h2" />
+                            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+                            <circle cx="17" cy="18" r="2" />
+                            <circle cx="7" cy="18" r="2" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== USE CASES ==================== -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">When It Helps</div>
+                <h2 class="section-title">Every vehicle has a story.<br>Make yours reachable.</h2>
+                <p class="section-subtitle">Six moments — any one of them could happen to you today.</p>
+            </div>
+
+            <div class="use-cases__grid stagger-children">
+
+                <div class="use-case-card reveal">
+                    <div class="use-case-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Ban / no-entry: blocked driveway -->
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="m4.9 4.9 14.2 14.2" />
+                        </svg>
+                    </div>
+                    <h3 class="use-case-card__title">You Blocked Someone's Driveway</h3>
+                    <p class="use-case-card__desc">You're grabbing groceries for 10 minutes. They scan the QR — you're
+                        back before the frustration even starts.</p>
+                </div>
+
+                <div class="use-case-card reveal">
+                    <div class="use-case-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Shield-alert: car got hit / damage alert -->
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="M12 8v4" />
+                            <path d="M12 16h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="use-case-card__title">Your Parked Car Got Hit</h3>
+                    <p class="use-case-card__desc">A bystander saw it happen. They scan your QR and send you the
+                        culprit's plate number before you even return.</p>
+                </div>
+
+                <div class="use-case-card reveal">
+                    <div class="use-case-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Eye: spotted / witnessed -->
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <h3 class="use-case-card__title">Your Bike Was Spotted After Theft</h3>
+                    <p class="use-case-card__desc">Someone sees your stolen bike outside a shop. They scan the QR on the
+                        helmet lock and alert you instantly — location and all.</p>
+                </div>
+
+                <div class="use-case-card reveal">
+                    <div class="use-case-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Lightbulb: headlights left on -->
+                            <path
+                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                            <path d="M9 18h6" />
+                            <path d="M10 22h4" />
+                        </svg>
+                    </div>
+                    <h3 class="use-case-card__title">Headlights Left On</h3>
+                    <p class="use-case-card__desc">A stranger in the car park notices your headlights are still running.
+                        They scan the QR and message you — before your battery dies.</p>
+                </div>
+
+                <div class="use-case-card reveal">
+                    <div class="use-case-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Price tag: selling vehicle -->
+                            <path
+                                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" />
+                            <path d="M7 7h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="use-case-card__title">Selling Your Vehicle</h3>
+                    <p class="use-case-card__desc">Stick the QR on the windshield. Interested buyers contact you
+                        directly — without you posting your personal number on OLX or classifieds.</p>
+                </div>
+
+                <div class="use-case-card reveal">
+                    <div class="use-case-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Shield: society security -->
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3 class="use-case-card__title">Society Security Needs You</h3>
+                    <p class="use-case-card__desc">Your car is blocking a fire exit or needs to be moved for
+                        maintenance. Security scans the QR and reaches you — no calling through intercom.</p>
+                </div>
+
+                <!--
+                == FUTURE: Emergency Contact Feature ==
+                These use cases are held for when emergency contact functionality is live.
+
+                <div class="use-case-card reveal">
+                    Roadside Breakdown, No Signal — trucker scans QR, reaches emergency contact
+                </div>
+
+                <div class="use-case-card reveal">
+                    Fleet Driver Needs Urgent Help — QR on truck routes to fleet manager at 2AM
+                </div>
+
+                <div class="use-case-card reveal">
+                    Medical Emergency at the Wheel — first responders scan QR, get blood type + contacts
+                </div>
+                -->
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ==================== VIDEO SHOWCASE ==================== -->
+    <section class="video-showcase" id="demo">
+        <div class="container">
+            <div class="section-header reveal" style="text-align:center;">
+                <div class="section-label" style="justify-content:center;">In Action</div>
+                <h2 class="section-title">Watch VeiloScan Work</h2>
+                <p class="section-subtitle">From scanning a QR on a windshield to connecting with the owner - see the
+                    entire experience in real time.</p>
+            </div>
+
+            <div class="video-showcase__frame reveal">
+                <div class="video-showcase__glow"></div>
+                <div class="video-showcase__player">
+                    <iframe id="demo-video" src="https://youtu.be/ECk22cUr7k4" title="VeiloScan - See It In Action"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+
+    <section class="cta" id="get-qr">
+        <div class="container">
+            <div class="cta__inner reveal-scale">
+                <h2 class="cta__title">Ready to make your vehicle smarter?</h2>
+                <p class="cta__desc">Order your premium QR stickers from our official store partners. Once they arrive,
+                    simply scan and activate them using our app.</p>
+
+                <div class="cta__store-links">
+                    <a href="#" target="_blank" class="btn-store btn-amazon">
+                        Buy on <img src="assets/amazon.png" alt="Amazon" class="btn-store__logo">
+                    </a>
+                    <a href="#" target="_blank" class="btn-store btn-flipkart">
+                        Buy on <img src="assets/flipkart.png" alt="Flipkart" class="btn-store__logo">
+                    </a>
+                </div>
+
+                <div class="cta__app-links" id="download">
+                    <p class="cta__app-text">Already have a sticker? Link it in the app:</p>
+                    <a href="#" target="_blank" class="btn-store btn-play">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Google Play" class="btn-store__logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <div class="footer__logo">
+                        <img src="assets/white-logo.png" alt="VeiloScan">
+                    </div>
+                    <p class="footer__brand-desc">
+                        Smart QR codes for vehicle owners. Let people reach you without revealing your number - whether
+                        it's a parking block, a fender bender, or an emergency.
+                    </p>
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social-link" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">QR Stickers</h4>
+                    <ul class="footer__links">
+                        <li><a href="#get-qr">Car QR Stickers</a></li>
+                        <li><a href="#get-qr">Bike QR Stickers</a></li>
+                        <li><a href="#get-qr">Truck &amp; Fleet Stickers</a></li>
+                        <li><a href="#">Helmet QR Tags</a></li>
+                        <li><a href="#">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__col-title">Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__copyright">© 2024 VeiloScan. All rights reserved.</div>
+                <div class="footer__legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
